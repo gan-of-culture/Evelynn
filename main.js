@@ -13,7 +13,7 @@ app.on('ready', function(){
   mainWindow = new BrowserWindow({width:800, height:600});
 //Lädt die Html datei
 mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, '/HTML/index.html'),
     protocol: 'file:',
     slashes: true
   }));
@@ -30,47 +30,92 @@ mainWindow.loadURL(url.format({
   Menu.setApplicationMenu(mainMenu);
 });
 
-//
-function createAddWindow(){
-   //Neues window
-   addWindow = new BrowserWindow({width:300, height:200, title:"Test"});
-   //Lädt die Html datei
-     addWindow.loadURL(url.format({
-       pathname: path.join(__dirname, 'addWindow.html'),
-       protocol: 'file:',
-       slashes: true
-     }));
-     // Garbage collection handle
-     addWindow.on('close', function(){
-       addWindow = null;
-     });
+//Funktion die die Seite ändert, jenachdem was für eine gewünscht wird
+function changeWindow(id){
+  //Hier wird die HTML datei von dem mainWindow überschrieben
+  //Wenn die ID Stimmt ändert sich die HMTL Seite
+  if(id == 'nHentai'){
+    mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, '/HTML/nHentai.html'),
+      protocol: 'file:',
+      slashes: true
+    }));
+  }
+  if(id == 'Rule34'){
+    mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, '/HTML/Rule34.html'),
+      protocol: 'file:',
+      slashes: true
+    }));
+  }
+  if(id == 'Danbooru'){
+    mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, '/HTML/Danbooru.html'),
+      protocol: 'file:',
+      slashes: true
+    }));
+  }
+  if(id == 'Hanime'){
+    mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, '/HTML/Hanime.html'),
+      protocol: 'file:',
+      slashes: true
+    }));
+  }
+  if(id == 'Underhentai'){
+    mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, '/HTML/Underhentai.html'),
+      protocol: 'file:',
+      slashes: true
+    }));
+  }
+  else{
+    mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, '/HTML/Error.html'),
+      protocol: 'file:',
+      slashes: true
+    }));
+  }
+  // Garbage collection handle
+  mainWindow.on('close', function () {
+    mainWindow = null;
+  });
 }
 
 //Hier wird das eigene Template erstellt
-//Alle "Items" im Template werden als Array geschrieben
+//Alle "Labels" im Template werden als Array geschrieben
 const mainTemplate = [
   {
     //label = in diesem Fall ein neues Label oben Links
-    label:'File',
-    //Die Submenüs sind die menüs die als DropDown erscheinen 
-    submenu:[
-      {
-        //Hier ist der Name des ersten DropDown eintrages
-        label: 'Add Item',
-        click(){
-          //Hier wird die selber erstellte Methode createAddWindow aufgerufen
-          createAddWindow();
-        }
-      },
-      {
-        label: 'Quit',
-        //Click ist ein Event das aufgerufen wird sobald das Label gedrückt wird
-        click(){
-          //app.quit schließt das Programm sobald click aufgerufen worden ist
-          app.quit();
-        }
-      }
-    ]
+    label:'nHentai',
+    click(){
+      //Hier wird die selber erstellte Methode createAddWindow aufgerufen und der Wert für welche Seite mitgegeben
+      changeWindow('nHentai');
+    },
+  },
+  {
+    label:'Rule34',
+    click(){
+      changeWindow('Rule34');
+    },
+  },
+  {
+    label:'Danbooru',
+    click(){
+      changeWindow('Danbooru');
+    },
+  },
+  {
+    label:'Hanime',
+    click(){
+      changeWindow('Hanime');
+    },
+  },
+  {
+    label:'Underhentai',
+    click(){
+      changeWindow('Underhentai');
+    },
   }
 ];
 
