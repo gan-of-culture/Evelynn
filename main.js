@@ -34,48 +34,7 @@ mainWindow.loadURL(url.format({
 function changeWindow(id){
   //Hier wird die HTML datei von dem mainWindow überschrieben
   //Wenn die ID Stimmt ändert sich die HMTL Seite
-  if(id == 'nHentai'){
-    mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, '/HTML/nHentai.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-  }
-  if(id == 'Rule34'){
-    mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, '/HTML/Rule34.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-  }
-  if(id == 'Danbooru'){
-    mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, '/HTML/Danbooru.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-  }
-  if(id == 'Hanime'){
-    mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, '/HTML/Hanime.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-  }
-  if(id == 'Underhentai'){
-    mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, '/HTML/Underhentai.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-  }
-  else{
-    mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, '/HTML/Error.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-  }
+  
   // Garbage collection handle
   mainWindow.on('close', function () {
     mainWindow = null;
@@ -86,36 +45,7 @@ function changeWindow(id){
 //Alle "Labels" im Template werden als Array geschrieben
 const mainTemplate = [
   {
-    //label = in diesem Fall ein neues Label oben Links
-    label:'nHentai',
-    click(){
-      //Hier wird die selber erstellte Methode createAddWindow aufgerufen und der Wert für welche Seite mitgegeben
-      changeWindow('nHentai');
-    },
-  },
-  {
-    label:'Rule34',
-    click(){
-      changeWindow('Rule34');
-    },
-  },
-  {
-    label:'Danbooru',
-    click(){
-      changeWindow('Danbooru');
-    },
-  },
-  {
-    label:'Hanime',
-    click(){
-      changeWindow('Hanime');
-    },
-  },
-  {
-    label:'Underhentai',
-    click(){
-      changeWindow('Underhentai');
-    },
+    label:'Main' 
   }
 ];
 
