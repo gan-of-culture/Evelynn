@@ -1,0 +1,55 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.container-fluid {
+    height: 100vh;
+}
+
+.input-group {
+    align-items: flex-end !important;
+    width: 40vw;
+    height: 50vh;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#searchField {
+    border-style: solid;
+    border-radius: 5px;
+}
+
+#searchResults{
+    width: 40vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#searchBox{
+    align-items: center !important;
+}
+
+.btn{
+    float: right;
+    padding: 2.8%;
+    visibility: hidden;
+}
+
+.list-group-item{
+    padding: 0;
+    height: auto;
+}
+
+.list-group-item:hover .btn{
+    visibility: visible;
+}
+
+.item-link{
+    padding: 3% !important;
+    vertical-align: middle;
+    display: inline-block;
+}

@@ -13,7 +13,7 @@ app.on('ready', function(){
   mainWindow = new BrowserWindow({width:800, height:600});
 //Lädt die Html datei
 mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, '/HTML/index.html'),
+    pathname: path.join(__dirname, '/html/index.html'),
     protocol: 'file:',
     slashes: true
   }));

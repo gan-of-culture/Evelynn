@@ -1,0 +1,13 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.navbar-brand {
+    font-size: 25px !important;
+}
+
+.col-p-2 {
+    align-items: center !important;
+}
